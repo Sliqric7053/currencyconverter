@@ -1,0 +1,76 @@
+html body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: auto;
+  font-weight: bold;
+}
+
+p {
+  margin: 1px;
+}
+
+h2 {
+  margin: 25px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#result {
+  font-size: 50px;
+}
+
+h1,
+p,
+h2 {
+  font-family: helvetica;
+  color: white;
+}
+
+.contain {
+  height: 500px;
+  width: 100%;
+  align: center;
+  background-color: white;
+  margin: auto;
+}
+
+#subcont {
+  background-color: #0e9261;
+  width: 50%;
+  height: 100%;
+  box-shadow: 1px 1px 50px #888888;
+}
+
+#head {
+  background-color: #03a65a;
+  padding: 20px;
+}
+
+input[type="number"] {
+  margin: 10px 2px;
+  color: white;
+  background-color: #1c5d3b;
+  height: 30px;
+  width: 200px;
+  text-align: center;
+  font-family: helvetica;
+  border: none;
+}
+
+/* Support Browser */
+
+input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white;
+}
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
+}

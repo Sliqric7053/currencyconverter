@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="main.css">
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Currency Converter">
+    <!-- <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png"> -->
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Currency Converter">
+    <!-- <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png"> -->
+
+    <!-- Tile icon for Win8 (144x144 + tile color)  -->
+    <!-- <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"> -->
+    <meta name="msapplication-TileColor" content="#263238">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#263238">
+</head>
+
+<body>
+    <div class="contain" align="center">
+        <div id="subcont">
+            <div id="head">
+                <h1>Currency Converter</h1>
+                <p>Enter an amount to convert</p>
+            </div>
+
+            <h2>Conversion amount..</h2>
+            <h2 id="result">
+                <a>Result</a>
+            </h2>
+            <label for="conversion"></label>
+            <input type="text" id="conversion" style="padding: 10px; font-size: 18px; text-align: center">
+            <br>
+            <br>
+            <select name="converts" id="selection">
+                <option>Select Currncy Pair</option>
+                <option value="1">USD to AUD</option>
+                <option value="2">USD to NZD</option>
+                <option value="3">USD to CNY</option>
+                <option value="4">USD to Euro</option>
+                <option value="5">USD to ZAR</option>
+                <option value="6">USD to GBP</option>
+            </select>
+            <br />
+            <br />
+            <label for="value"></label>
+            <input type="text" id="value" placeholder="Enter amount" style="color:rgb(20, 22, 21)">
+            <br>
+            <br>
+            <input type="Button" onclick="convertCurrency()" value="Convert" style="margin: 8px;">
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <!-- Register Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(function (registration) {
+                    registration.addEventListener('updatefound', function () {
+
+                        // If updatefound is fired, it means that there's
+                        // a new service worker being installed.
+                        var installingWorker = registration.installing;
+                        console.log('A new service worker is being installed:',
+                            installingWorker);
+
+                        // You can listen for changes to the installing service worker's
+                        // state via installingWorker.onstatechange
+                    });
+                })
+                .catch(function (error) {
+                    console.log('Service worker registration failed:', error);
+                });
+        } else {
+            console.log('Service workers are not supported.');
+        }
+    </script>
+</body>
