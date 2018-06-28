@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Currency Converter</title>
-    <link rel="stylesheet" href="main.css">
+    <link defer rel="stylesheet" href="main.css">
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -45,11 +45,11 @@
                 <a>Result</a>
             </h2>
             <label for="conversion"></label>
-            <input type="text" id="conversion" style="padding: 10px; font-size: 18px; text-align: center">
+            <input type="text" id="conversion" style="padding: 1vmin; font-size: 18px; text-align: center">
             <br>
             <br>
             <select name="converts" id="selection">
-                <option>Select Currncy Pair</option>
+                <option>Select Currency Pair</option>
                 <option value="1">USD to AUD</option>
                 <option value="2">USD to NZD</option>
                 <option value="3">USD to CNY</option>
@@ -66,7 +66,7 @@
             <input type="Button" onclick="convertCurrency()" value="Convert" style="margin: 8px;">
         </div>
     </div>
-    <script src="main.js"></script>
+    <script defer src="./main.js"></script>
     <!-- Register Service Worker -->
     <script>
         if ('serviceWorker' in navigator) {

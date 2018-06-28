@@ -1,14 +1,17 @@
-function convertCurrency(amount, fromCurrency, toCurrency) {
-  var value = document.getElementById("value").value,
+const convertCurrency = (amount, fromCurrency, toCurrency) => {
+  // set default values
+  let value = document.getElementById("value").value,
     conversion = document.getElementById("conversion"),
     madeSelection = document.getElementById("selection"), // get the select
     selection = madeSelection.options[madeSelection.selectedIndex].value, // get the selected option
-    ans = 1;
+    ans = "USD_ZAR";
+  amount = value;
   value = parseFloat(value);
+
   if (!isNaN(value)) {
     switch (selection) {
       case "6":
-        ans = "EUR_US";
+        ans = "EUR_USD";
         break;
       case "5":
         ans = "USD_ZAR";
@@ -32,23 +35,17 @@ function convertCurrency(amount, fromCurrency, toCurrency) {
   }
 
   let query = ans;
-  let url =
-    "https://free.currencyconverterapi.com/api/v5/convert?q=" +
-    query +
-    "&compact=ultra";
-
+  let url = `https://free.currencyconverterapi.com/api/v5/convert?q=${query}&compact=ultra`;
   fetch(url)
     .then(data => {
       return data.json();
     })
     .then(res => {
-      console.log(`${Object.values(res)}`);
       const convertedValue = `${Object.values(res)}`;
-      conversion.value = Number(convertedValue).toFixed(2);
+      conversion.value = (Number(convertedValue) * Number(amount)).toFixed(2);
     })
     .catch(error => {
       alert("there was an error: ", error);
-      console.log(error);
     });
-}
+};
 //   https://free.currencyconverterapi.com/api/v5/convert?q=USD_ZAR&compact=ultra
