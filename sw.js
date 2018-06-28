@@ -1,5 +1,4 @@
-const APP_CACHE = "currency-converter-v1";
-const RATE_URL = "/free";
+const APP_CACHE = "currency-converter-v2";
 
 // Cached files
 const urlsToCache = [
