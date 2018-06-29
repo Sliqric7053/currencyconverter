@@ -36,7 +36,7 @@ const convertCurrency = (amount, fromCurrency, toCurrency) => {
 
   let query = ans;
   let url = `https://free.currencyconverterapi.com/api/v5/convert?q=${query}&compact=ultra`;
-  fetch(url)
+  fetch(url, { mode: "cors" })
     .then(data => {
       return data.json();
     })
