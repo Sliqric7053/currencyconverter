@@ -1,4 +1,4 @@
-const APP_CACHE = "currency-converter-v3";
+const APP_CACHE = "currency-converter-v5";
 
 // Cached files
 const urlsToCache = [
