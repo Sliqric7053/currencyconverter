@@ -1,13 +1,13 @@
-const APP_CACHE = "currency-converter-v2";
+const APP_CACHE = "currency-converter-v5";
 
 // Cached files
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/main.css",
-  "/main.js",
-  "/favicon.ico",
-  "/manifest.json",
+  "./",
+  "./index.html",
+  "./main.css",
+  "./main.js",
+  "./favicon.ico",
+  "./manifest.json",
   "https://free.currencyconverterapi.com/api/v5/currencies",
   "https://free.currencyconverterapi.com/api/v5/convert?q=EUR_USD&compact=ultra",
   "https://free.currencyconverterapi.com/api/v5/convert?q=USD_ZAR&compact=ultra",

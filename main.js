@@ -42,6 +42,7 @@ const convertCurrency = (amount, fromCurrency, toCurrency) => {
     })
     .then(res => {
       const convertedValue = `${Object.values(res)}`;
+      storeDB(res);
       conversion.value = (Number(convertedValue) * Number(amount)).toFixed(2);
     })
     .catch(error => {
@@ -49,3 +50,51 @@ const convertCurrency = (amount, fromCurrency, toCurrency) => {
     });
 };
 //   https://free.currencyconverterapi.com/api/v5/convert?q=USD_ZAR&compact=ultra
+
+// Store response in the indexedDB
+function storeDB(data) {
+  let indexedDB =
+    self.indexedDB ||
+    self.mozIndexedDB ||
+    self.webkitIndexedDB ||
+    self.msIndexedDB;
+
+  let open = indexedDB.open("currency-db", 1);
+
+  open.onupgradeneeded = () => {
+    let db = open.result;
+    db.createObjectStore("currencyStore", { autoIncrement: true });
+  };
+
+  open.onsuccess = () => {
+    let db = open.result;
+    let tx = db.transaction("currencyStore", "readwrite");
+    let store = tx.objectStore("currencyStore");
+
+    store.put(data);
+
+    tx.oncomplete = () => {
+      db.close();
+    };
+  };
+}
+
+// <!-- Register Service Worker -->
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("./sw.js")
+    .then(function(registration) {
+      registration.addEventListener("updatefound", function() {
+        var installingWorker = registration.installing;
+        console.log(
+          "A new service worker is being installed:",
+          installingWorker
+        );
+      });
+    })
+    .catch(function(error) {
+      console.log("Service worker registration failed:", error);
+    });
+} else {
+  console.log("Service workers are not supported.");
+}
