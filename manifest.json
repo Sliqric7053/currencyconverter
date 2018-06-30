@@ -1,22 +1,19 @@
 {
-  "name": "Currency Converter",
   "short_name": "C Converter",
-  "manifest_version": 2,
-  "description": "A fast, offline-friendly currency converter.",
+  "name": "Currency Converter",
+  "start_url": "/",
+
+  "theme_color": "#f48c5b",
+  "background_color": "#ffffff",
+
+  "display": "standalone",
+  "orientation": "portrait",
+
   "icons": [
-    {
-      "src": "./favicon.ico",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
     {
       "src": "./favicon.ico",
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#263238",
-  "theme_color": "#263238"
+  ]
 }
