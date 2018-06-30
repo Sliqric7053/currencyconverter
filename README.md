@@ -1,5 +1,7 @@
 # Currency converter
 
+App can be viewed here: https://sliqric7053.github.io/currencyconverter/
+
 A simple currency converter with offline capabilities.
 
 Introduction: Freecurrencyconverterapi is an API that converts one currency to another and returns result in json format. 
@@ -10,8 +12,8 @@ The application should be able convert one currency to another while offline or 
 
 Requirements: 
 
-- All Javascript MUST be written in >=ES6 
+- All Javascript MUST be written in >= ES6 
 - Use Github repository for version control. 
 - Host a working version of the application on Github-Pages. 
-- The application must make use of the following Service Worker Cache API IndexedDB 
+- The application must make use of the  following Service Worker Cache API IndexedDB 
 - You are not to use any service worker library
