@@ -37,3 +37,24 @@ h2 {
   font-size: 18px;
   text-align: center;
 }
+
+.splash {
+  opacity: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  color: #272c33;
+  padding-top: 25vh;
+  text-align: center;
+  z-index: -1;
+  font-family: monospace;
+}
+
+.contain:empty + .splash {
+  opacity: 1;
+  z-index: 100;
+}
+
+.splash h1 {
+  margin-bottom: 50px;
+}
